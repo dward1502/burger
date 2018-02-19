@@ -1,11 +1,13 @@
 const connection = require('./connection.js');
 
 const orm = {
-    selectAll: function(table, onResult){
-        const query = 'SELECT * FROM ??';
-        connection.query(query,[table],  function(err, result){
-            console.log(err);
-            onResult(err,result);
+    selectAll: function(table, callBack){
+        const query = "SELECT * FROM " + table + ";";
+        connection.query(query, function(err, result){
+            if(err){
+                throw err;
+            }
+            callBack(err,result);
         });
     },
     insertOne: function(){
