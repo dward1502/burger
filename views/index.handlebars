@@ -1,22 +1,32 @@
 <img id="burgerImg" src="/assets/img/burger.jpg" alt="Picture of burger and fries" width="400" height="300">
 
 <h1 id="title">Eat-Da-Burger!</h1>
-
-<div class="burgerOptions">
-    <ol>
+<div class="container">
+<div class="burgerOptionsL">
+    <ol id="left">
         {{#each burgers}}
-            <li>
-                {{id}}
-                {{burger_name}}
-            </li>
-        
+            {{#unless devoured}}
+                <li>
+                    {{burger_name}}
+                    <button class="change-eaten" data-id="{{id}}" data-devoured="{{devoured}}">Devour It</button>
+                </li>
+            {{/unless}}        
         {{/each}}
         {{!-- devoured equals false for loop that goes through the database : False needs to add a button (Devour It)--}}
     </ol>
-
-    <ul>
+</div>
+<div class="burgerOptionsR">
+    <ol id="right">
+        {{#each burgers}}
+            {{#if devoured}}
+                <li>
+                    {{burger_name}}
+                </li>
+            {{/if}}
+        {{/each}}
         {{!-- devoured equals true for loop that goes through the database --}}
-    </ul>
+    </ol>
+</div>
 </div>
 <form class="burgerInput">
     <input type="text" id="burgerType" name="burger"><br><br>

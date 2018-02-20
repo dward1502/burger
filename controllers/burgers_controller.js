@@ -19,8 +19,19 @@ router.post("/burgers", function(req, res){
     ],[
         req.body.burger_name
     ], function(result){
-        res.json({ id: result.insertId});
+        res.redirect('/');
+//        res.json({ id: result.insertId});
     }); 
+});
+
+router.put('/burgers/:id', function(req,res){
+    let condition = 'id = ' + req.params.id;
+
+    burger.update({
+        devoured: true
+    }, condition, function(data){
+        res.redirect('/');
+    });
 });
 
 

@@ -2,7 +2,7 @@
     color: rgb(37, 18, 110);
     font-size: 46px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    margin: 1% 25% 5% 26%;
+    margin: 1% 25% 2% 26%;
     text-align: center;
 }
 #burgerImg{
@@ -39,4 +39,28 @@ h3{
 }
 body{
     background-color: rgba(191, 103, 10, 0.837);
+}
+.change-eaten{
+    margin-left: 20%;
+    border-radius: 5px;
+    background-color: brown;
+    color: yellow;
+    font-size: 15px;
+    width: 100px;
+}
+#left{
+ margin-left: 10%;
+}
+#right{
+    margin-left: 10%;
+}
+.container{
+ display: flex;
+  clear: both;  
+}
+.burgerOptionsL{
+    width: 50%;
+}
+.burgerOptionsR{
+    width: 50%;
 }

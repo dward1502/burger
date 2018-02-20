@@ -54,7 +54,7 @@ const orm = {
             if(err){
                 throw err;
             }
-            console.log(err);
+            console.log("There is an error: " +err);
             callBack(result);
         });
 
@@ -69,12 +69,12 @@ const orm = {
 
         console.log(query);
         
-        connection.query(query, [table,column,value,id], function(err,result){
+        connection.query(query, function(err,result){
             if(err){
                 throw err;
             }
-            console.log(err);
-            onResult(result);
+            console.log("There is an error: "+err);
+            callBack(result);
         });
     }
 }
