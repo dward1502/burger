@@ -1,20 +1,25 @@
-<img id="burgerImg" src="/assets/img/burger.jpg" alt="Picture of burger and fries" width="400" height="400">
+<img id="burgerImg" src="/assets/img/burger.jpg" alt="Picture of burger and fries" width="400" height="300">
 
 <h1 id="title">Eat-Da-Burger!</h1>
 
-<ul>
-    {{#each burgers}}
-    
-    {{/each}}
-    {{!-- devoured equals false for loop that goes through the database : False needs to add a button (Devour It)--}}
-</ul>
+<div class="burgerOptions">
+    <ol>
+        {{#each burgers}}
+            <li>
+                {{id}}
+                {{burger_name}}
+            </li>
+        
+        {{/each}}
+        {{!-- devoured equals false for loop that goes through the database : False needs to add a button (Devour It)--}}
+    </ol>
 
-<ul>
-    {{!-- devoured equals true for loop that goes through the database --}}
-</ul>
-
+    <ul>
+        {{!-- devoured equals true for loop that goes through the database --}}
+    </ul>
+</div>
 <form class="burgerInput">
-    <input type="text" id="burgerType" name="burger" width="300" height="80"><br><br>
+    <input type="text" id="burgerType" name="burger"><br><br>
     <button type="submit" id="submit">Submit</button><br><br>
     <h3>Enter a burger you want to eat.. Click the 'Submit' button</h3>
 </form>

@@ -1,5 +1,33 @@
 const connection = require('./connection.js');
 
+function insertQuestionMarks(num){
+    let arr = [];
+
+    for(var i = 0; i<num; i++){
+        arr.push("?");
+    }
+    return arr.toString();
+}
+
+function objToSql(ob){
+    let arr = [];
+
+    for(let key in ob){
+        let value = ob[key];
+
+        if(Object.hasOwnProperty.call(ob,key)){
+            if(typeof value === "string" && value.indexOf(" ") >= 0){
+                value = "'" + value + "'";
+            }
+
+            arr.push(key + "=" + value);
+        }
+    }
+
+    return arr.toString();
+    
+}
+
 const orm = {
     selectAll: function(table, callBack){
         const query = "SELECT * FROM " + table + ";";
@@ -7,22 +35,46 @@ const orm = {
             if(err){
                 throw err;
             }
-            callBack(err,result);
+            callBack(result);
         });
     },
-    insertOne: function(){
-        const query = 'INSERT INTO ?? (??) VALUES (?)';
-        connection.query(query, [table,columns,values], function(err,result){
+    insertOne: function(table, columns ,values, callBack){
+        let query = 'INSERT INTO ' + table;
+
+        query += " (";
+        query += column.toString();
+        query += ") ";
+        query += "VALUES (";
+        query += insertQuestionMarks(values.length);
+        query += ") ";
+
+        console.log(query);
+
+        connection.query(query, values, function(err,result){
+            if(err){
+                throw err;
+            }
             console.log(err);
-            onResult(err,result);
+            callBack(result);
         });
 
     },
-    updateOne: function(table, column, value, id , onResult) {
-        const query = 'UPDATE ?? SET ?? = ? WHERE id = ?';
+    updateOne: function (table, objColumnValues, condition, callBack) {
+        let query = 'UPDATE ' + table;
+
+        query += " SET ";
+        query += objToSql(objColumnValues);
+        query += " WHERE ";
+        query += condition;
+
+        console.log(query);
+        
         connection.query(query, [table,column,value,id], function(err,result){
+            if(err){
+                throw err;
+            }
             console.log(err);
-            onResult(err,result);
+            onResult(result);
         });
     }
 }

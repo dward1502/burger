@@ -1,4 +1,42 @@
 #title{
-    color: aquamarine;
+    color: rgb(37, 18, 110);
+    font-size: 46px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin: 1% 25% 5% 26%;
+    text-align: center;
+}
+#burgerImg{
+    margin-left: 37%;
+    margin-top: 80px;
+}
+.burgerInput{
+    margin-left: 30%;
+}
+#burgerType{
+    margin-left: 15%;
+    width: 300px;
+    height: 60px;
+    background: burlywood;
+    color: black;
+    font-size: 18px;
+
+}
+#submit{
+    margin-left: 20%;
+    border-radius: 10px;
+    background-color: brown;
+    color: yellow;
+    border: solid 3px black;
+    width: 200px;
+    height: 40px;
+    font-size: 18px;
+}
+h3{
+    color: blueviolet;
+    font-size: 20px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: 300;
+}
+body{
+    background-color: rgba(191, 103, 10, 0.837);
 }

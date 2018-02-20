@@ -9,7 +9,17 @@ const burg = {
         });
     },
 
+    create: function(columns, values, callBack){
+        orm.insertOne("burgers", column, values, function(res){
+            callBack(res);
+        });
+    },
 
+    update: function(objColumnValues, condition, callBack){
+        orm.updateOne("burgers", objColumnValues, condition, function(res){
+            callBack(res);
+        });
+    }
 };
 
 module.exports = burg;
