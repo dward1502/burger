@@ -42,7 +42,7 @@ const orm = {
         let query = 'INSERT INTO ' + table;
 
         query += " (";
-        query += column.toString();
+        query += columns.toString();
         query += ") ";
         query += "VALUES (";
         query += insertQuestionMarks(values.length);

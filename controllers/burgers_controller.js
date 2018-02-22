@@ -19,6 +19,7 @@ router.post("/burgers", function(req, res){
     ],[
         req.body.burger_name
     ], function(result){
+        console.log(result);
         res.redirect('/');
 //        res.json({ id: result.insertId});
     }); 

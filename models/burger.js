@@ -10,7 +10,7 @@ const burg = {
     },
 
     create: function(columns, values, callBack){
-        orm.insertOne("burgers", column, values, function(res){
+        orm.insertOne("burgers", columns, values, function(res){
             callBack(res);
         });
     },
