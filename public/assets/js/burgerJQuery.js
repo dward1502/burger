@@ -8,11 +8,11 @@ $(function(){
             devoured: devoured
         };
         $.ajax("/burgers/" + id,{
-            type: "PUT",
+            type: "put",
             data: newDevouredState
         }).then( function(){
             console.log("changed devoured state to " + devoured);
-            location.reload();
+   //         location.reload();
         
         });
     });
